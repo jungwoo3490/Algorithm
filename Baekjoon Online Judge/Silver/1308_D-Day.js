@@ -33,51 +33,41 @@ if (
   if (today[1] < dDay[1]) {
     fixToday = [dDay[0], today[1], today[2]];
     if (today[1] <= 2) {
-      // 검증 완.
       for (i = today[0]; i <= dDay[0] - 1; i++) {
         isYoon(i) ? (day += 366) : (day += 365);
       }
     } else {
       for (i = today[0]; i <= dDay[0] - 1; i++) {
-        // 검증 완
         isYoon(i + 1) ? (day += 366) : (day += 365);
       }
     }
-    //
   } else if (today[1] === dDay[1]) {
     if (dDay[2] < today[2]) {
-      // 흠
       fixToday = [dDay[0] - 1, today[1], today[2]];
       if (today[1] <= 2) {
-        // 검증 완
         for (i = today[0]; i < dDay[0] - 1; i++) {
           isYoon(i) ? (day += 366) : (day += 365);
         }
       } else {
         if (dDay[0] - today[0] !== 1) {
-          // 검증 완
           for (i = today[0] + 1; i <= dDay[0] - 1; i++) {
             isYoon(i) ? (day += 366) : (day += 365);
           }
         }
       }
     } else {
-      // 흠흠
       fixToday = [dDay[0], today[1], today[2]];
       if (today[1] <= 2) {
-        // 검증 완
         for (i = today[0]; i <= dDay[0] - 1; i++) {
           isYoon(i) ? (day += 366) : (day += 365);
         }
       } else {
-        //검증 완
         for (i = today[0]; i <= dDay[0] - 1; i++) {
           isYoon(i + 1) ? (day += 366) : (day += 365);
         }
       }
     }
   } else {
-    // 검증 완
     fixToday = [dDay[0] - 1, today[1], today[2]];
     if (today[1] <= 2) {
       for (i = today[0]; i < dDay[0] - 1; i++) {
@@ -85,7 +75,6 @@ if (
       }
     } else {
       if (dDay[0] - today[0] !== 1) {
-        // 검증 완
         for (i = today[0] + 1; i <= dDay[0] - 1; i++) {
           isYoon(i) ? (day += 366) : (day += 365);
         }
