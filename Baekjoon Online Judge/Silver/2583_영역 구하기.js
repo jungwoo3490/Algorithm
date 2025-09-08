@@ -1,9 +1,8 @@
 const fs = require("fs");
 const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
-let count;
-
 function dfs(y, x) {
+  let cnt = 1;
   visited[y][x] = 1;
   let dy = [-1, 0, 1, 0];
   let dx = [0, 1, 0, -1];
@@ -24,9 +23,10 @@ function dfs(y, x) {
       continue;
     }
 
-    dfs(ny, nx);
-    count += 1;
+    cnt += dfs(ny, nx);
   }
+
+  return cnt;
 }
 
 const [M, N, K] = input[0].split(" ").map(Number);
@@ -49,9 +49,8 @@ let resArr = [];
 for (let i = 0; i < M; i++) {
   for (let j = 0; j < N; j++) {
     if (map[i][j] === 1 && visited[i][j] === 0) {
-      count = 1;
-      dfs(i, j);
-      resArr.push(count);
+      let cnt = dfs(i, j);
+      resArr.push(cnt);
     }
   }
 }
